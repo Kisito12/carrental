@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Locations | CarRental</title>
+    <link rel="stylesheet" href="./assets/css/location.css">
+</head>
+<body>
+    <header>
+    <img class="logo" src="./assets/image/LOGO.jpg" alt="logo">
+        <nav>
+            <a href="index.php">Home</a>
+            <a href="car.php">Cars</a>
+            <a href="booking.php">Booking</a>
+            <a href="about.php">About</a>
+            <a href="contact_us.php">Contact us</a>
+            <a href="location.php">Location</a>
+            <a href="login.php" class="login-button">Login</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="location-section">
+            <h2>Our Global Presence</h2>
+            <p>We operate in cities across the world.</p>
+            <h3>Major Locations</h3>
+            <ul class="major-locations">
+                <li class="major-location-item">New York</li>
+                <li class="major-location-item">Paris</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 CarRental. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+
+        <div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","languages":["en","fr","it","es"],"wrapper_selector":".gtranslate_wrapper"}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/fd.js" defer></script>
+
+    </footer>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
