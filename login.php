@@ -23,7 +23,7 @@
     <div class="container">
         <section class="form-section">
             <h2>Login</h2>
-            <form id="login-form" method="post">
+            <form id="./actions/process_logo.php" method="post">
                 <label for="username">Username</label>
                 <input type="text" id="username" required>
 

@@ -24,7 +24,7 @@
         <section class="form-section">
             <h2>Book Your Car</h2>
             <p>Complete the form below to confirm your booking.</p>
-            <form id="booking-form" onsubmit="return validatePayment()">
+            <form action="./actions/process_booking.php" method="POST">
                 <label for="full-name">Full Name:</label>
                 <input type="text" id="full-name" required>
 

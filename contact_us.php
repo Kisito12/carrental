@@ -23,6 +23,7 @@
     <div class="container">
         <h2>Contact Us</h2>
         <form>
+        <form action="./actions/process_contact.php" method="POST">
             <label for="name">Name:</label>
             <input type="text" name="name" required>
 

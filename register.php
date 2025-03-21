@@ -23,7 +23,7 @@
     <div class="container">
         <section class="form-section">
             <h2>Register</h2>
-            <form id="registration-form" method="post">
+            <form action="./actions/process_register.php" method="POST">
                 <label for="username">Username</label>
                 <input type="text" id="username" required>
 

@@ -48,3 +48,8 @@
                 toggleButton.addEventListener('click', togglePasswordVisibility);
             }
         });
+
+        var passwordField = document.querySelector('input[name="password"]');
+    var confirmPasswordField = document.querySelector('input[name="confirm_password"]');
+    passwordField.type = (passwordField.type === "password") ? "text" : "password";
+    confirmPasswordField.type = (confirmPasswordField.type === "password") ? "text" : "password"; 
