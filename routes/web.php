@@ -18,7 +18,8 @@ Route::middleware('auth')->group(function () {
 });
 
 // Public routes
-Route::get('/', [CarController::class, 'index'])->name('home');
+Route::get('/',  function () {
+    return view('welcome');})->name('home');
 
 // Authenticated user routes
 Route::middleware(['auth', 'verified'])->group(function () {
