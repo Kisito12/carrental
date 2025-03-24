@@ -3,13 +3,13 @@
     <!-- SIDEBAR HEADER -->
     <div :class="sidebarToggle ? 'justify-center' : 'justify-between'"
         class="flex items-center gap-2 pt-8 sidebar-header pb-7">
-        <a href="{{route('dashboard')}}">
+        <a href="{{ route('dashboard') }}">
             <span class="logo" :class="sidebarToggle ? 'hidden' : ''">
                 <h2 class="dark:hidden font-bold text-4xl menu-item-active">Car Rental</h2>
                 <h2 class="hidden dark:block font-bold text-4xl text-white">Car Rental</h2>
             </span>
 
-                <h2  class="logo-icon menu-item-active text-3xl" :class="sidebarToggle ? 'lg:block' : 'hidden'">Car</h2>
+            <h2 class="logo-icon menu-item-active text-3xl" :class="sidebarToggle ? 'lg:block' : 'hidden'">Car</h2>
 
         </a>
     </div>
@@ -39,7 +39,7 @@
 
                     <!-- Menu Item Profile -->
                     <li>
-                        <a href="{{route('dashboard')}}" @click="selected = (selected === 'Profile' ? '':'Profile')"
+                        <a href="{{ route('dashboard') }}" @click="selected = (selected === 'Profile' ? '':'Profile')"
                             class="menu-item group"
                             :class="(selected === 'Profile') && (page === 'profile') ? 'menu-item-active' :
                             'menu-item-inactive'">
@@ -62,8 +62,8 @@
 
                     <!-- Menu Item Profile -->
                     <li>
-                        <a href="{{route('admin.cars.index')}}" @click="selected = (selected === 'Profile' ? '':'Profile')"
-                            class="menu-item group"
+                        <a href="{{ route('admin.cars.index') }}"
+                            @click="selected = (selected === 'Profile' ? '':'Profile')" class="menu-item group"
                             :class="(selected === 'Profile') && (page === 'profile') ? 'menu-item-active' :
                             'menu-item-inactive'">
                             <svg :class="(selected === 'Profile') && (page === 'profile') ? 'menu-item-icon-active' :
@@ -83,7 +83,7 @@
                     <!-- Menu Item Profile -->
                     <!-- Menu Item Profile -->
                     <li>
-                        <a href="profile.html" @click="selected = (selected === 'Profile' ? '':'Profile')"
+                        <a href="{{ route('admin.bookings.list') }}" @click="selected = (selected === 'Profile' ? '':'Profile')"
                             class="menu-item group"
                             :class="(selected === 'Profile') && (page === 'profile') ? 'menu-item-active' :
                             'menu-item-inactive'">

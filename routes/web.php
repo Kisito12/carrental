@@ -13,16 +13,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// // Public routes
-// Route::get('/',  function () {
-//     return view('welcome');})->name('home');
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Authenticated user routes
-Route::middleware(['auth', 'verified', 'admin'])->group(function () {
+Route::middleware(['auth', 'admin'])->group(function () {
     
-    Route::post('/book/{car}', [BookingController::class, 'store'])->name('book.car');
+    Route::post('/book/{id}', [BookingController::class, 'store'])->name('bookings.store');
+    Route::get('/booking/{id}', [BookingController::class, 'index'])->name('book.index');
 });
 
 // Admin routes
@@ -30,6 +27,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('dashboard');
+    Route::get('/booking/list', [BookingController::class, 'list'])->name('admin.bookings.list');
 
     Route::resource('/admin/cars', CarController::class)->names([
         'index' => 'admin.cars.index',
