@@ -1,0 +1,129 @@
+
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+
+/* Header styles */
+header {
+    background: #007bff;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.logo{
+    width: 130px;
+    border-radius: 20px;
+}
+
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+/* Navigation styles */
+nav {
+    margin: 20px 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #ffcc00; /* Gold color on hover */
+}
+
+/* Main content styles */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Location section styles */
+.location-section {
+    margin: 20px 0;
+}
+
+.location-section h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Major locations list styles */
+.major-locations {
+    list-style-type: none;
+    padding: 0;
+}
+
+.major-location-item {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.major-location-item:hover {
+    background: #0056b3; /* Darker blue on hover */
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #007bff;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Social media links styles */
+.social-media {
+    margin-top: 15px;
+}
+
+.social-media a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        width: 95%;
+    }
+}
