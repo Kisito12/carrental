@@ -14,6 +14,7 @@ export default {
         extend: {
             fontFamily: {
                 outfit: ['Outfit', 'sans-serif'],
+                nunito: ['Nunito', 'sans-serif'],
             },
             fontSize: {
                 'title-2xl': ['72px', { lineHeight: '90px' }],

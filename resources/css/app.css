@@ -1,8 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap") layer(base);
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap") layer(base);
+/* @source "../../node_modules/flowbite"; */
+/* @source "../../node_modules/flowbite-datepicker"; */
 
 /* @import "tailwindcss"; */
 
@@ -143,23 +147,23 @@
     justify-content: space-between;
 }
 
-.sidebar:hover ..menu-group-title {
+.sidebar:hover .menu-group-title {
     display: block;
 }
 
-.sidebar:hover ..menu-group-icon {
+.sidebar:hover .menu-group-icon {
     display: none;
 }
 
-.sidebar:hover ..menu-item-text {
+.sidebar:hover .menu-item-text {
     display: inline;
 }
 
-.sidebar:hover ..menu-item-arrow {
+.sidebar:hover .menu-item-arrow {
     display: block;
 }
 
-.sidebar:hover ..menu-dropdown {
+.sidebar:hover .menu-dropdown {
     display: flex;
 }
 
