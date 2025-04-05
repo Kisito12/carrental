@@ -21,23 +21,34 @@ class BookingController extends Controller
         return view('booking.list', compact('bookings'));
     }
 
+    public function show()
+    {
+        $user_id = Auth::user()->id;
+        $bookings = Booking::with(['car'])->where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
+        // dd($bookings);
+        return view('booking.single', compact('bookings'));
+    }
+
     public function store(Request $request, $carId)
     {
         $request->validate([
-            'start_date' => 'required|date|after_or_equal:today',
-            'end_date' => 'required|date|after:start_date',
+            'booking_range' => 'required|string',
         ]);
 
-        $car = Car::findOrFail($carId); // Fetch the car using ID
+        $dates = explode(' - ', $request->booking_range);
+        $startDate = date('Y-m-d', strtotime($dates[0]));
+        $endDate = date('Y-m-d', strtotime($dates[1]));
 
-        $totalDays = (strtotime($request->end_date) - strtotime($request->start_date)) / 86400;
+        $car = Car::findOrFail($carId);
+
+        $totalDays = (strtotime($endDate) - strtotime($startDate)) / 86400;
         $totalPrice = ceil($totalDays) * $car->price_per_day;
 
         Booking::create([
             'user_id' => Auth::id(),
             'car_id' => $car->id,
-            'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
+            'start_date' => $startDate,
+            'end_date' => $endDate,
             'total_price' => $totalPrice,
             'status' => 'pending',
         ]);

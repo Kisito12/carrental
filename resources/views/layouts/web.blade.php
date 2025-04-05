@@ -32,19 +32,15 @@
                         :class="{ 'text-gray-900': scrolled }">CarRental</span>
                 </a>
                 <div class="flex items-center lg:order-2">
-                    <a href="{{ route('login') }}"
-                        class="text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-200 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2"
-                        :class="{ 'text-gray-800': scrolled }">Log in</a>
-                    <a href="{{ route('register') }}"
-                        class="text-white bg-brand-700 hover:bg-brand-500 focus:ring-4 focus:ring-brand-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-brand-600 dark:hover:bg-brand-700 focus:outline-none dark:focus:ring-brand-800">Get
-                        started</a>
+                    <a href="{{ route('admin.bookings.show') }}"
+                        class="text-white bg-brand-700 hover:bg-brand-500 focus:ring-4 focus:ring-brand-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-brand-600 dark:hover:bg-brand-700 focus:outline-none dark:focus:ring-brand-800">Dashboard</a>
                 </div>
                 <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                     <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                         <li><a href="{{ route('home') }}" class="block py-2 pr-4 pl-3 text-gray-900 lg:text-gray-900"
                                 :class="{ 'text-brand-700': scrolled }">Home</a></li>
-                        <li><a href="#about" class="block py-2 pr-4 pl-3 text-gray-900 lg:text-gray-900"
-                                :class="{ 'text-brand-700': scrolled }">About</a></li>
+                        <li><a href="{{route('admin.bookings.show')}}" class="block py-2 pr-4 pl-3 text-gray-900 lg:text-gray-900"
+                                :class="{ 'text-brand-700': scrolled }">Bookings</a></li>
                         <li><a href="#cars" class="block py-2 pr-4 pl-3 text-gray-900 lg:text-gray-900"
                                 :class="{ 'text-brand-700': scrolled }">Cars</a></li>
                         <li><a href="#features" class="block py-2 pr-4 pl-3 text-gray-900 lg:text-gray-900"
