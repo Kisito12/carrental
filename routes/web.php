@@ -18,8 +18,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::post('/book/{id}', [BookingController::class, 'store'])->name('bookings.store');
-    Route::get('/booking/{id}', [BookingController::class, 'index'])->name('book.index');
     Route::get('/bookings', [BookingController::class, 'list'])->name('admin.bookings.list');
     Route::patch('/admin/bookings/{booking}/approve', [BookingController::class, 'approve'])->name('admin.bookings.approve');
     Route::patch('/admin/bookings/{booking}/cancel', [BookingController::class, 'cancel'])->name('admin.bookings.cancel');
@@ -40,6 +38,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/my-bookings', [BookingController::class, 'show'])->name('admin.bookings.show');
+    Route::post('/book/{id}', [BookingController::class, 'store'])->name('bookings.store');
+    Route::get('/booking/{id}', [BookingController::class, 'index'])->name('book.index');
 
 });
 require __DIR__ . '/auth.php';
