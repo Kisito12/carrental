@@ -12,13 +12,27 @@ class AdminMiddleware
     /**
      * Handle an incoming request.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user() && Auth::user()->isAdmin()) {
-            return $next($request);
+        if (Auth::check()) {
+            $user = Auth::user();
+
+            if ($user->isAdmin()) {
+                // Proceed to admin section
+                return $next($request);
+            }
+
+            if ($user->isUser()) {
+                // Redirect to user booking dashboard
+                return redirect()->route('admin.bookings.show')->with('info', 'Redirected to your dashboard.');
+            }
         }
-        return redirect('/')->with('error', 'Access denied');
+
+        // Redirect unauthenticated or unauthorized access
+        return redirect('/')->with('error', 'Access denied.');
     }
 }

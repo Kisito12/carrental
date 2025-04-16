@@ -53,7 +53,7 @@ class BookingController extends Controller
             'status' => 'pending',
         ]);
 
-        return redirect()->route('admin.bookings.list')->with('success', 'Booking request sent');
+        return redirect()->route('admin.bookings.show')->with('success', 'Booking request sent');
     }
 
 }

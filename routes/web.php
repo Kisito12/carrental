@@ -17,15 +17,11 @@ Route::middleware('auth')->group(function () {
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/book/{id}', [BookingController::class, 'store'])->name('bookings.store');
     Route::get('/booking/{id}', [BookingController::class, 'index'])->name('book.index');
     Route::get('/bookings', [BookingController::class, 'list'])->name('admin.bookings.list');
     Route::get('/my-bookings', [BookingController::class, 'show'])->name('admin.bookings.show');
-});
-
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('/admin/cars', CarController::class)->names([
         'index' => 'admin.cars.index',
@@ -38,4 +34,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     ]);
 });
 
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/my-bookings', [BookingController::class, 'show'])->name('admin.bookings.show');
+
+});
 require __DIR__.'/auth.php';
