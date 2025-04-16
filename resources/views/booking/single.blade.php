@@ -6,7 +6,7 @@
             <div class="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8">
                 <div>
                     <h2 class="mt-3 text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">My Bookings</h2>
-                    
+
                 </div>
                 <div class="flex items-center space-x-4">
                     <button data-modal-toggle="filterModal" data-modal-target="filterModal" type="button"
@@ -19,23 +19,22 @@
                         Filters
                         <svg class="-me-0.5 ms-2 h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                             width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="m19 9-7 7-7-7" />
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m19 9-7 7-7-7" />
                         </svg>
                     </button>
                     <button id="sortDropdownButton1" data-dropdown-toggle="dropdownSort1" type="button"
                         class="flex w-full items-center justify-center rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-brand-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700 sm:w-auto">
                         <svg class="-ms-0.5 me-2 h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                             width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2"
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M7 4v16M7 4l3 3M7 4 4 7m9-3h6l-6 6h6m-6.5 10 3.5-7 3.5 7M14 18h4" />
                         </svg>
                         Sort
                         <svg class="-me-0.5 ms-2 h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                             width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="m19 9-7 7-7-7" />
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m19 9-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="dropdownSort1"
@@ -78,71 +77,80 @@
                 </div>
             </div>
             @if (count($bookings) > 0)
-            <div class="mb-4 grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4">
-                @foreach ($bookings as $booking)
-                    <div
-                        class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-                        <div class="h-56 w-full">
-                            <a href="#">
-                                <img class="mx-auto h-full dark:hidden" src="{{ asset('storage/' . $booking->car->image) }}"
-                                    alt="{{ $booking->car->name }}" />
-                                <img class="mx-auto hidden h-full dark:block"
-                                    src="{{ asset('storage/' . $booking->car->image) }}" alt="{{ $booking->car->name }}" />
-                            </a>
-                        </div>
-                        <div class="pt-6">
-                            <div class="mb-4 flex items-center justify-between gap-4">
-                                <span
-                                    class="me-2 rounded bg-brand-100 px-2.5 py-0.5 text-xs font-medium text-brand-800 dark:bg-brand-900 dark:text-brand-300">
-                                    {{ $booking->car->brand }} - {{ $booking->car->year }}</span>
+                <div class="mb-4 grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4">
+                    @foreach ($bookings as $booking)
+                        <div
+                            class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                            <div class="h-56 w-full">
+                                <a href="#">
+                                    <img class="mx-auto h-full dark:hidden"
+                                        src="{{ asset('storage/' . $booking->car->image) }}"
+                                        alt="{{ $booking->car->name }}" />
+                                    <img class="mx-auto hidden h-full dark:block"
+                                        src="{{ asset('storage/' . $booking->car->image) }}"
+                                        alt="{{ $booking->car->name }}" />
+                                </a>
                             </div>
-
-                            <a href="#"
-                                class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">{{ $booking->car->name }}</a>
-
-                            <div class="flex items-center justify-between">
-                                <div class="mt-2 flex items-center gap-2">
-
-                                    <p class="text-sm font-medium text-gray-900 dark:text-white">From:</p>
-                                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $booking->start_date }}</p>
+                            <div class="pt-6">
+                                <div class="mb-4 flex items-center justify-between gap-4">
+                                    <span
+                                        class="me-2 rounded bg-brand-100 px-2.5 py-0.5 text-xs font-medium text-brand-800 dark:bg-brand-900 dark:text-brand-300">
+                                        {{ $booking->car->brand }} - {{ $booking->car->year }}</span>
                                 </div>
 
-                                <ul class="mt-2 flex items-center gap-4">
-                                    <li class="flex items-center gap-2">
-                                        <p class="text-sm font-medium text-gray-900 dark:text-white">To:</p>
-                                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $booking->end_date }}</p>
-                                    </li>
-                                </ul>
-                            </div>
+                                <a href="#"
+                                    class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">{{ $booking->car->name }}</a>
 
-                            <div class="mt-4 flex flex-col text-left gap-4">
-                                <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">
-                                    Price: {{ number_format($booking->total_price, 0) }} FCFA
-                                </p>
+                                <div class="flex items-center justify-between">
+                                    <div class="mt-2 flex items-center gap-2">
 
-                                <div class="flex items-center">
-                                    @if ($booking->status == 'pending')
-                                        <p
-                                            class="rounded-full bg-yellow-50 px-2 py-0.5 text-theme-xs font-medium text-yellow-700 dark:bg-yellow-500/15 dark:text-yellow-500">
-                                            Pending
-                                        </p>
-                                    @elseif ($booking->status == 'approved')
-                                        <p
-                                            class="rounded-full bg-success-50 px-2 py-0.5 text-theme-xs font-medium text-success-700 dark:bg-success-500/15 dark:text-success-500">
-                                            Active
-                                        </p>
-                                    @endif
+                                        <p class="text-sm font-medium text-gray-900 dark:text-white">From:</p>
+                                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
+                                            {{ $booking->start_date }}</p>
+                                    </div>
+
+                                    <ul class="mt-2 flex items-center gap-4">
+                                        <li class="flex items-center gap-2">
+                                            <p class="text-sm font-medium text-gray-900 dark:text-white">To:</p>
+                                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
+                                                {{ $booking->end_date }}</p>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="mt-4 flex flex-col text-left gap-4">
+                                    <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">
+                                        Price: {{ number_format($booking->total_price, 0) }} FCFA
+                                    </p>
+
+                                    <div class="flex items-center">
+                                        @if ($booking->status == 'pending')
+                                            <p
+                                                class="rounded-full bg-yellow-50 px-2 py-0.5 text-theme-xs font-medium text-yellow-700 dark:bg-yellow-500/15 dark:text-yellow-500">
+                                                Pending
+                                            </p>
+                                        @elseif ($booking->status == 'approved')
+                                            <p
+                                                class="rounded-full bg-success-50 px-2 py-0.5 text-theme-xs font-medium text-success-700 dark:bg-success-500/15 dark:text-success-500">
+                                                Active
+                                            </p>
+                                        @elseif ($booking->status == 'canceled')
+                                            <p
+                                                class="rounded-full bg-red-50 px-2 py-0.5 text-theme-xs font-medium text-red-700 dark:bg-success-500/15 dark:text-red-500">
+                                                Canceled
+                                            </p>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-            </div>
-            <div class="w-full text-center">
-                <button type="button"
-                    class="rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-brand-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700">Show
-                    more</button>
-            </div>
+                    @endforeach
+                </div>
+                <div class="w-full text-center">
+                    <button type="button"
+                        class="rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-brand-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700">Show
+                        more</button>
+                </div>
             @else
                 <span class="text-center font-bold text-3xl flex items-center justify-center">No booking</span>
             @endif

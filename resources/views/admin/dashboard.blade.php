@@ -14,20 +14,8 @@
                     </path>
                 </svg></div>
             <div class="px-4 text-gray-700">
-                <h3 class="text-sm tracking-wider">Total Number of Cars</h3>
-                <p class="text-3xl">12,768</p>
-            </div>
-        </div>
-        <div class="flex items-center bg-white rounded-sm overflow-hidden shadow">
-            <div class="p-4 bg-blue-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2">
-                    </path>
-                </svg></div>
-            <div class="px-4 text-gray-700">
-                <h3 class="text-sm tracking-wider">Available Number Cars</h3>
-                <p class="text-3xl">39,265</p>
+                <h3 class="text-sm tracking-wider">Total  Cars</h3>
+                <p class="text-3xl">{{ $totalCars }}</p>
             </div>
         </div>
         <div class="flex items-center bg-white rounded-sm overflow-hidden shadow">
@@ -39,7 +27,7 @@
                 </svg></div>
             <div class="px-4 text-gray-700">
                 <h3 class="text-sm tracking-wider">Total Booked Cars</h3>
-                <p class="text-3xl">142,334</p>
+                <p class="text-3xl">{{ $bookedCars }}</p>
             </div>
         </div>
         <div class="flex items-center bg-white rounded-sm overflow-hidden shadow">
@@ -51,7 +39,7 @@
                 </svg></div>
             <div class="px-4 text-gray-700">
                 <h3 class="text-sm tracking-wider">Total Amouunt Earned</h3>
-                <p class="text-3xl">34.12%</p>
+                <p class="text-3xl">{{ number_format($totalEarned, 2) }} FCFA</p>
             </div>
         </div>
     </div>
@@ -121,13 +109,7 @@
                                             </p>
                                         </div>
                                     </th>
-                                    <th class="px-5 py-3 sm:px-6">
-                                        <div class="flex items-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Action
-                                            </p>
-                                        </div>
-                                    </th>
+                                
                                 </tr>
                             </thead>
                             <!-- table header end -->
@@ -181,21 +163,21 @@
                                         <td class="px-5 py-4 sm:px-6">
                                             <div class="flex items-center">
                                                 @if ($booking->status == 'pending')
-                                                    <p
-                                                        class="rounded-full bg-yellow-50 px-2 py-0.5 text-theme-xs font-medium text-yellow-700 dark:bg-yellow-500/15 dark:text-yellow-500">
-                                                        Pending
-                                                    </p>
-                                                @elseif ($booking->status == 'approved')
-                                                    <p
-                                                        class="rounded-full bg-success-50 px-2 py-0.5 text-theme-xs font-medium text-success-700 dark:bg-success-500/15 dark:text-success-500">
-                                                        Active
-                                                    </p>
-                                                @endif
-                                            </div>
-                                        </td>
-                                        <td class="px-5 py-4 sm:px-6">
-                                            <div class="flex items-center">
-
+                                                        <p
+                                                            class="rounded-full bg-yellow-50 px-2 py-0.5 text-theme-xs font-medium text-yellow-700 dark:bg-yellow-500/15 dark:text-yellow-500">
+                                                            Pending
+                                                        </p>
+                                                    @elseif ($booking->status == 'approved')
+                                                        <p
+                                                            class="rounded-full bg-success-50 px-2 py-0.5 text-theme-xs font-medium text-success-700 dark:bg-success-500/15 dark:text-success-500">
+                                                            Active
+                                                        </p>
+                                                        @elseif ($booking->status == 'canceled')
+                                                        <p
+                                                            class="rounded-full bg-red-50 px-2 py-0.5 text-theme-xs font-medium text-red-700 dark:bg-success-500/15 dark:text-red-500">
+                                                            Canceled
+                                                        </p>
+                                                    @endif
                                             </div>
                                         </td>
                                     </tr>

@@ -159,14 +159,40 @@
                                                             class="rounded-full bg-success-50 px-2 py-0.5 text-theme-xs font-medium text-success-700 dark:bg-success-500/15 dark:text-success-500">
                                                             Active
                                                         </p>
+                                                        @elseif ($booking->status == 'canceled')
+                                                        <p
+                                                            class="rounded-full bg-red-50 px-2 py-0.5 text-theme-xs font-medium text-red-700 dark:bg-success-500/15 dark:text-red-500">
+                                                            Canceled
+                                                        </p>
                                                     @endif
                                                 </div>
                                             </td>
                                             <td class="px-5 py-4 sm:px-6">
-                                                <div class="flex items-center">
-
+                                                <div class="flex items-center space-x-2">
+                                                    @if ($booking->status === 'pending')
+                                                        <!-- Approve Button -->
+                                                        <form method="POST" action="{{ route('admin.bookings.approve', $booking->id) }}">
+                                                            @csrf
+                                                            @method('PATCH')
+                                                            <button type="submit" class="text-xs bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded">
+                                                                Approve
+                                                            </button>
+                                                        </form>
+                                            
+                                                        <!-- Cancel Button -->
+                                                        <form method="POST" action="{{ route('admin.bookings.cancel', $booking->id) }}">
+                                                            @csrf
+                                                            @method('PATCH')
+                                                            <button type="submit" class="text-xs bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded">
+                                                                Cancel
+                                                            </button>
+                                                        </form>
+                                                    @else
+                                                        <span class="text-gray-400 text-xs">No actions</span>
+                                                    @endif
                                                 </div>
                                             </td>
+                                            
                                         </tr>
                                     @endforeach
                                 </tbody>

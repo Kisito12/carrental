@@ -56,4 +56,23 @@ class BookingController extends Controller
         return redirect()->route('admin.bookings.show')->with('success', 'Booking request sent');
     }
 
+    public function approve($id)
+    {
+        $booking = Booking::findOrFail($id);
+        $booking->status = 'approved';
+        $booking->save();
+
+        return redirect()->back()->with('success', 'Booking approved successfully.');
+    }
+
+    public function cancel($id)
+    {
+        $booking = Booking::findOrFail($id);
+        $booking->status = 'canceled';
+        $booking->save();
+
+        return redirect()->back()->with('error', 'Booking cancelled.');
+    }
+
+
 }
